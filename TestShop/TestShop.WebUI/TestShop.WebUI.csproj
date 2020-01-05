@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductManagerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -339,6 +340,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\ProductManager\Index.cshtml" />
+    <Content Include="Views\ProductManager\Create.cshtml" />
+    <Content Include="Views\ProductManager\Delete.cshtml" />
+    <Content Include="Views\ProductManager\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -353,6 +358,24 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TestShop.Core\TestShop.Core.csproj">
+      <Project>{06fb5a08-6242-47c3-906a-4526af4f7613}</Project>
+      <Name>TestShop.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestShop.DataAccess.InMemory\TestShop.DataAccess.InMemory.csproj">
+      <Project>{3ad2948d-47a8-4fd5-8bdb-f81cdbf74f05}</Project>
+      <Name>TestShop.DataAccess.InMemory</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestShop.DataAccess.SQL\TestShop.DataAccess.SQL.csproj">
+      <Project>{def62f8c-c251-4195-9961-044bfaa99adc}</Project>
+      <Name>TestShop.DataAccess.SQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestShop.Services\TestShop.Services.csproj">
+      <Project>{080c3aa2-ae74-4965-b025-66bf4b7b0032}</Project>
+      <Name>TestShop.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

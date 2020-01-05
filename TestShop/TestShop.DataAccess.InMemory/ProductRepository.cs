@@ -9,7 +9,7 @@ using TestShop.Core.Models;
 
 namespace TestShop.DataAccess.InMemory
 {
-    class ProductRepository
+    public class ProductRepository
     {
         ObjectCache cache = MemoryCache.Default;
         List<Product> products;

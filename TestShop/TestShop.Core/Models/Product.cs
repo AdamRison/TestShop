@@ -24,5 +24,14 @@ namespace TestShop.Core.Models
         {
             this.Id = Guid.NewGuid().ToString();
         }
+
+        public void updateProductDetails(Product newProduct)
+        {
+            this.Name = newProduct.Name;
+            this.Description = newProduct.Description;
+            this.Price = newProduct.Price;
+            this.Category = newProduct.Category;
+            this.Image = newProduct.Image;
+        }
     }
 }
