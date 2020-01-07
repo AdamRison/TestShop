@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TestShop.Core;
+using TestShop.Core.Contracts;
 using TestShop.Core.Models;
 using TestShop.Core.ViewModels;
 
@@ -11,13 +12,13 @@ namespace TestShop.WebUI.Controllers
 {
     public class ProductManagerController : Controller
     {
-        InMemoryRepository<Product> productRepository;
-        InMemoryRepository<ProductCategory> productCategoryRepository;
+        IRepository<Product> productRepository;
+        IRepository<ProductCategory> productCategoryRepository;
 
-        public ProductManagerController()
+        public ProductManagerController(IRepository<Product> productContext, IRepository<ProductCategory> productCategoryContext)
         {
-            productRepository = new InMemoryRepository<Product>();
-            productCategoryRepository = new InMemoryRepository<ProductCategory>();
+            productRepository = productContext;
+            productCategoryRepository = productCategoryContext;
         }
         // GET: ProductManager
         public ActionResult Index()
