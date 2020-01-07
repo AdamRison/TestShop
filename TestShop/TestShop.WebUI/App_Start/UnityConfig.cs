@@ -2,6 +2,7 @@ using System;
 using TestShop.Core;
 using TestShop.Core.Contracts;
 using TestShop.Core.Models;
+using TestShop.DataAccess.SQL;
 using Unity;
 
 namespace TestShop.WebUI
@@ -44,8 +45,8 @@ namespace TestShop.WebUI
 
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
-            container.RegisterType<IRepository<Product>, InMemoryRepository<Product>>();
-            container.RegisterType<IRepository<ProductCategory>, InMemoryRepository<ProductCategory>>();
+            container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
+            container.RegisterType<IRepository<ProductCategory>, SQLRepository<ProductCategory>>();
         }
     }
 }
