@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TestShop.Core.Models;
+using TestShop.Core.ViewModels;
 using TestShop.DataAccess.InMemory;
 
 namespace TestShop.WebUI.Controllers
@@ -11,10 +12,12 @@ namespace TestShop.WebUI.Controllers
     public class ProductManagerController : Controller
     {
         ProductRepository productRepository;
+        ProductCategoryRepository productCategoryRepository;
 
         public ProductManagerController()
         {
             productRepository = new ProductRepository();
+            productCategoryRepository = new ProductCategoryRepository();
         }
         // GET: ProductManager
         public ActionResult Index()
@@ -26,8 +29,11 @@ namespace TestShop.WebUI.Controllers
 
         public ActionResult Create()
         {
-            Product product = new Product();
-            return View(product);
+            ProductManagerViewModel viewModel = new ProductManagerViewModel();
+
+            viewModel.Product = new Product();
+            viewModel.ProductCategories = productCategoryRepository.Collection();
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -56,7 +62,11 @@ namespace TestShop.WebUI.Controllers
             }
             else
             {
-                return View(product);
+                ProductManagerViewModel viewModel = new ProductManagerViewModel();
+                viewModel.Product = product;
+                viewModel.ProductCategories = productCategoryRepository.Collection();
+
+                return View(viewModel);
             }
         }
 
