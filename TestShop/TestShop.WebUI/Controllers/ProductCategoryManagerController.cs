@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TestShop.Core;
 using TestShop.Core.Models;
-using TestShop.DataAccess.InMemory;
 
 namespace TestShop.WebUI.Controllers
 {
     public class ProductCategoryManagerController : Controller
     {
         // GET: ProductCategoryCategoryManager
-         ProductCategoryRepository productCategoryRepository;
+         InMemoryRepository<ProductCategory> productCategoryRepository;
 
         public ProductCategoryManagerController()
         {
-            productCategoryRepository = new ProductCategoryRepository();
+            productCategoryRepository = new InMemoryRepository<ProductCategory>();
         }
         // GET: ProductCategoryManager
         public ActionResult Index()

@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace TestShop.Core.Models
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public string Id { get; set; }
         [StringLength(20)]
         [DisplayName("Product Name")]
         public String Name { get; set; }
@@ -19,11 +18,6 @@ namespace TestShop.Core.Models
         public String Image { get; set; }
         [Range(0, 1000)]
         public decimal Price { get; set; }
-
-        public Product()
-        {
-            this.Id = Guid.NewGuid().ToString();
-        }
 
         public void updateProductDetails(Product newProduct)
         {
