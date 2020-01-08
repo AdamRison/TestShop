@@ -18,14 +18,5 @@ namespace TestShop.Core.Models
         public String Image { get; set; }
         [Range(0, 1000)]
         public decimal Price { get; set; }
-
-        public void updateProductDetails(Product newProduct)
-        {
-            this.Name = newProduct.Name;
-            this.Description = newProduct.Description;
-            this.Price = newProduct.Price;
-            this.Category = newProduct.Category;
-            this.Image = newProduct.Image;
-        }
     }
 }
