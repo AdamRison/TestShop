@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TestShop.Core.Contracts;
 using TestShop.Core.Models;
+using TestShop.Core.ViewModels;
 
 namespace TestShop.WebUI.Controllers
 {
@@ -19,10 +20,25 @@ namespace TestShop.WebUI.Controllers
             productCategoryRepository = productCategoryContext;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(String Category=null)
         {
-            List<Product> products = productRepository.Collection().ToList();
-            return View(products);
+            List<Product> products;
+            List<ProductCategory> categories = productCategoryRepository.Collection().ToList();
+
+            if(Category == null)
+            {
+                products = productRepository.Collection().ToList();
+            }
+            else
+            {
+                products = productRepository.Collection().Where(p => p.Category == Category).ToList();
+            }
+
+            ProductListViewModel viewModel = new ProductListViewModel();
+            viewModel.Products = products;
+            viewModel.ProductCategories = categories;
+
+            return View(viewModel);
         }
 
         public ActionResult Details(string Id)
