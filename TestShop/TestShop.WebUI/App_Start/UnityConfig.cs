@@ -3,6 +3,7 @@ using TestShop.Core;
 using TestShop.Core.Contracts;
 using TestShop.Core.Models;
 using TestShop.DataAccess.SQL;
+using TestShop.Services;
 using Unity;
 
 namespace TestShop.WebUI
@@ -47,6 +48,9 @@ namespace TestShop.WebUI
             // container.RegisterType<IProductRepository, ProductRepository>();
             container.RegisterType<IRepository<Product>, SQLRepository<Product>>();
             container.RegisterType<IRepository<ProductCategory>, SQLRepository<ProductCategory>>();
+            container.RegisterType<IRepository<Basket>, SQLRepository<Basket>>();
+            container.RegisterType<IRepository<BasketItem>, SQLRepository<BasketItem>>();
+            container.RegisterType<IBasketService, BasketService>();
         }
     }
 }
