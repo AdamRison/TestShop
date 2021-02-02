@@ -147,5 +147,12 @@ namespace TestShop.Services
 
             return viewModel;
         }
+
+        public void ClearBasket(HttpContextBase httpContext)
+        {
+            Basket basket = GetBasket(httpContext, false);
+            basket.BasketItems.Clear();
+            basketRepository.Commit();
+        }
     }
 }
