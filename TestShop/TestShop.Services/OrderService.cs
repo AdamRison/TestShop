@@ -34,5 +34,21 @@ namespace TestShop.Services
             orderRepo.Commit();
 
         }
+
+        public List<Order> GetOrderList()
+        {
+            return orderRepo.Collection().ToList();
+        }
+
+        public Order GetOrder(string Id)
+        {
+            return orderRepo.Find(Id);
+        }
+
+        public void UpdateOrder(Order updatedOrder)
+        {
+            orderRepo.Update(updatedOrder);
+            orderRepo.Commit();
+        }
     }
 }
