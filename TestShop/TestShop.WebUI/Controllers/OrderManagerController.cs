@@ -8,6 +8,7 @@ using TestShop.Core.Models;
 
 namespace TestShop.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class OrderManagerController : Controller
     {
         IOrderService orderService;

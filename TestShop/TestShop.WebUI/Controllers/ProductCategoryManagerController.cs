@@ -9,6 +9,7 @@ using TestShop.Core.Models;
 
 namespace TestShop.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductCategoryManagerController : Controller
     {
         // GET: ProductCategoryCategoryManager

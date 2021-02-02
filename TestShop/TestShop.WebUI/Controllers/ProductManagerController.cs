@@ -11,6 +11,7 @@ using TestShop.Core.ViewModels;
 
 namespace TestShop.WebUI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductManagerController : Controller
     {
         IRepository<Product> productRepository;
